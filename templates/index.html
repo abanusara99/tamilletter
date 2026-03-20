@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>தமிழ் கற்போம் – Learn Tamil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="header-title">
+        <span class="ta-title">தமிழ் கற்போம்</span>
+        <span class="en-title">Learn Tamil</span>
+      </div>
+      <p class="header-sub">தமிழ் எழுத்துக்கள் (247) — ஆங்கில உச்சரிப்புடன் 🔊</p>
+    </div>
+    <div class="header-wave">
+      <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#e8f5e9"/>
+      </svg>
+    </div>
+  </header>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="uyir" role="tab">
+      உயிர் எழுத்துக்கள்<br><small>Vowels (12)</small>
+    </button>
+    <button class="tab-btn" data-tab="mei" role="tab">
+      மெய் எழுத்துக்கள்<br><small>Consonants (18)</small>
+    </button>
+    <button class="tab-btn" data-tab="uyirmei" role="tab">
+      உயிர்மெய் எழுத்துக்கள்<br><small>Combined (216)</small>
+    </button>
+    <button class="tab-btn" data-tab="numbers" role="tab">
+      தமிழ் எண்கள்<br><small>Numbers (13)</small>
+    </button>
+  </nav>
+
+  <main>
+
+    <!-- TAB 1: UYIR -->
+    <section id="tab-uyir" class="section visible">
+      <div class="section-header">
+        <h2 class="section-title">உயிர் எழுத்துக்கள் <span class="badge">12</span></h2>
+        <p class="section-desc">
+          12 Vowels (Uyir Ezhuthukkal) representing the core sounds of Tamil.
+          Including ஃ (Aayutha Ezhuthu), there are <strong>13 letters</strong> in this section.
+        </p>
+      </div>
+      <div id="grid-uyir" class="cards-grid"></div>
+      
+      <!-- Center Aligned Aayutham Info -->
+      <div class="info-box">
+        <p>
+          📌 ஃ — ஆயுத எழுத்து (Aayutha Ezhuthu) ஃ is the unique 13th letter.
+          It is neither a vowel nor a consonant — it stands alone.
+          Example words: <strong>அஃது</strong> (that), <strong>எஃகு</strong> (steel).
+          Pronounced as a soft aspirated glottal stop. Unicode: <code>U+0B83</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- TAB 2: MEI -->
+    <section id="tab-mei" class="section">
+      <div class="section-header">
+        <h2 class="section-title">மெய் எழுத்துக்கள் <span class="badge">18</span></h2>
+        <p class="section-desc">
+          18 pure consonants — each carries a புள்ளி (dot) suppressing the inherent vowel.
+        </p>
+      </div>
+      <div id="grid-mei" class="cards-grid"></div>
+    </section>
+
+    <!-- TAB 3: UYIRMEI MATRIX -->
+    <section id="tab-uyirmei" class="section">
+      <div class="section-header">
+        <h2 class="section-title">உயிர்மெய் எழுத்துக்கள் <span class="badge">216</span></h2>
+        <p class="section-desc">
+          18 மெய் × 12 உயிர் = 216 — click 🔊 any cell to hear pronunciation.
+        </p>
+      </div>
+      <div class="matrix-wrap">
+        <table class="matrix-table" id="matrix-table">
+          <thead id="matrix-thead"></thead>
+          <tbody id="matrix-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 4: NUMBERS -->
+    <section id="tab-numbers" class="section">
+      <div class="section-header">
+        <h2 class="section-title">தமிழ் எண்கள் <span class="badge">13</span></h2>
+        <p class="section-desc">
+          Classical Tamil numerals — Tamil digit · Arabic number · Tamil word.
+        </p>
+      </div>
+      <div id="grid-numbers" class="cards-grid cards-grid--numbers"></div>
+    </section>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

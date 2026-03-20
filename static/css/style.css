@@ -1,0 +1,133 @@
+/* ═══════════════════════════════════════════════════════════
+   தமிழ் கற்போம் — style.css
+   Body: light green | Cards: white | Text/Icons: black
+═══════════════════════════════════════════════════════════ */
+:root {
+  --bg:            #e8f5e9;
+  --card:          #ffffff;
+  --text:          #111111;
+  --text-muted:    #555555;
+  --accent:        #2e7d32;
+  --accent-light:  #a5d6a7;
+  --accent-pale:   #c8e6c9;
+  --tab-active:    #2e7d32;
+  --tab-bg:        #c8e6c9;
+  --col-header-bg: #4caf50;
+  --col-header-fg: #ffffff;
+  --row-mei-bg:    #ffcdd2;
+  --row-mei-fg:    #b71c1c;
+  --cell-border:   #c8e6c9;
+  --aayutham-bg:   #ce93d8;
+  --kuril-bg:      #81d4fa;
+  --nedil-bg:      #ffab91;
+  --shadow-sm:  0 2px 10px rgba(46,125,50,0.10);
+  --shadow-md:  0 5px 22px rgba(46,125,50,0.16);
+  --shadow-lg:  0 10px 36px rgba(46,125,50,0.22);
+  --radius:     16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text);min-height:100vh;padding-bottom:60px}
+
+/* HEADER */
+header{background:linear-gradient(135deg,#1b5e20 0%,#2e7d32 55%,#43a047 100%);color:#fff;padding:32px 24px 0;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 50%,rgba(255,255,255,0.08) 0%,transparent 65%);pointer-events:none}
+.header-inner{text-align:center;padding-bottom:26px;position:relative;z-index:1}
+.ta-title{font-family:'Baloo Thambi 2',cursive;font-size:clamp(1.9rem,5vw,3rem);font-weight:800;letter-spacing:2px;text-shadow:0 2px 14px rgba(0,0,0,0.3)}
+.en-title{font-size:0.85rem;font-weight:700;letter-spacing:5px;opacity:0.75;margin-top:2px}
+.header-sub{font-size:0.85rem;opacity:0.70;margin-top:6px}
+.header-wave{line-height:0}
+.header-wave svg{display:block;width:100%;height:44px}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1b5e20;color:#fff;padding:10px 28px;border-radius:30px;font-size:0.88rem;font-weight:700;z-index:9999;box-shadow:var(--shadow-lg)}
+.toast.hidden{display:none}
+
+/* TABS */
+.tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:22px 16px 10px;max-width:900px;margin:0 auto}
+.tab-btn{background:var(--tab-bg);border:2px solid transparent;border-radius:30px;padding:10px 22px;font-family:'Baloo Thambi 2',cursive;font-size:0.92rem;font-weight:700;color:var(--accent);cursor:pointer;line-height:1.35;text-align:center;transition:all 0.18s}
+.tab-btn small{display:block;font-family:'Nunito',sans-serif;font-size:0.72rem;opacity:0.75;font-weight:600}
+.tab-btn:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.tab-btn.active{background:var(--tab-active);color:#fff;border-color:#1b5e20;box-shadow:var(--shadow-md);transform:translateY(-2px) scale(1.04)}
+
+/* SECTIONS */
+.section{display:none}
+.section.visible{display:block;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.section-header{text-align:center;padding:18px 16px 8px;max-width:700px;margin:0 auto}
+.section-title{font-family:'Baloo Thambi 2',cursive;font-size:1.45rem;font-weight:800;color:var(--accent);display:flex;align-items:center;justify-content:center;gap:10px}
+.badge{background:var(--accent);color:#fff;border-radius:20px;font-size:0.75rem;font-family:'Nunito',sans-serif;font-weight:800;padding:2px 11px}
+.section-desc{font-size:0.87rem;color:var(--text-muted);margin-top:6px;line-height:1.55}
+
+/* INFO BOX (Aayutham) */
+.info-box{max-width:800px;margin:20px auto 30px;padding:24px;background:#f1f8e9;border:1.5px solid #c8e6c9;border-radius:16px;text-align:center;box-shadow:var(--shadow-sm)}
+.info-box p{font-size:0.95rem;line-height:1.7;color:#2e7d32;margin:0}
+.info-box strong{color:#1b5e20;font-weight:800}
+.info-box code{background:#dcedc8;padding:2px 6px;border-radius:4px;font-family:'Nunito',monospace;font-weight:700}
+
+/* LEGEND */
+.legend-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:10px 16px 16px}
+.legend-pill{font-size:0.78rem;font-weight:700;border-radius:20px;padding:4px 14px;font-family:'Nunito',sans-serif}
+.aayutham-pill{background:var(--aayutham-bg);color:#4a148c}
+.kuril-pill{background:var(--kuril-bg);color:#01579b}
+.nedil-pill{background:var(--nedil-bg);color:#bf360c}
+
+/* CARDS GRID */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:16px;padding:10px 22px 30px;max-width:1050px;margin:0 auto}
+.cards-grid--numbers{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+
+/* CARD */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-sm);border:1.5px solid #dcedc8;display:flex;flex-direction:column;align-items:center;padding:18px 10px 13px;gap:5px;transition:transform 0.18s,box-shadow 0.18s,border-color 0.18s}
+.card:hover{transform:translateY(-5px) scale(1.03);box-shadow:var(--shadow-lg);border-color:var(--accent-light)}
+.card-aayutham{border-top:4px solid #9c27b0}
+.card-kuril{border-top:4px solid #0288d1}
+.card-nedil{border-top:4px solid #f4511e}
+.card-mei{border-top:4px solid #2e7d32}
+.card-number{border-top:4px solid #f57f17}
+.card-letter{font-family:'Baloo Thambi 2',cursive;font-size:2.5rem;font-weight:800;color:var(--text);line-height:1.1;user-select:none}
+.card-sub{text-align:center;font-size:0.76rem;font-weight:700;color:var(--text);line-height:1.4}
+.card-sub span{display:block;color:var(--text-muted);font-family:'Baloo Thambi 2',cursive;font-size:0.72rem}
+.card-roman{font-size:0.72rem;font-weight:800;background:var(--accent-pale);color:var(--accent);border-radius:20px;padding:2px 11px;font-family:'Nunito',sans-serif;letter-spacing:0.4px}
+.card-numeral{font-size:1.4rem;font-weight:800;color:var(--accent);background:var(--accent-pale);border-radius:8px;padding:1px 12px;font-family:'Nunito',sans-serif}
+
+/* SPEECH BUTTON */
+.speech-btn{background:none;border:none;cursor:pointer;padding:5px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.15s,transform 0.15s;margin-top:2px}
+.speech-btn:hover{background:var(--accent-pale);transform:scale(1.18)}
+.speech-btn:active{transform:scale(0.90)}
+.speech-btn svg{width:22px;height:22px;fill:#111111}
+.speech-btn.speaking svg{fill:var(--accent)}
+
+/* ═══ MATRIX TABLE ═══════════════════════════════════════ */
+.matrix-wrap{display:block;overflow-x:auto;padding:10px 20px 30px;max-width:100%}
+.matrix-table{border-collapse:collapse;margin:10px auto;font-family:'Baloo Thambi 2',cursive;background:#fff;border:4px solid #2e7d32;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md)}
+
+/* Header */
+.matrix-table thead .vh-cell{background:var(--col-header-bg);color:var(--col-header-fg);border:4px solid #388e3c;padding:0;min-width:65px}
+.matrix-table .corner-cell{background:#1b5e20;color:#fff;border:4px solid #1b5e20;padding:0;min-width:72px}
+.matrix-table .corner-cell .cell-inner{padding:10px;text-align:center;vertical-align:middle;font-size:0.72rem;font-family:'Nunito',sans-serif}
+
+/* Row labels */
+.matrix-table tbody tr .rh-cell{background:var(--row-mei-bg);color:var(--row-mei-fg);border:4px solid #ef9a9a;padding:0;vertical-align:middle;white-space:nowrap}
+.matrix-table tbody tr td.row-mei .row-code{display:block;font-family:'Nunito',sans-serif;font-size:0.65rem;font-weight:700;color:#c62828;letter-spacing:0.4px}
+
+/* Data cells */
+.matrix-table tbody tr .data-cell{background:#fff;border:4px solid var(--cell-border);padding:0;transition:background 0.15s;cursor:pointer;min-width:75px;min-height:75px}
+.matrix-table tbody tr:nth-child(4n+1) .data-cell{background:#f9fbe7}
+.matrix-table tbody tr .data-cell:hover{background:#dcedc8}
+
+.cell-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 8px;gap:4px;width:100%;height:100%}
+.vh-cell .cell-inner{font-size:1.1rem;font-weight:800;text-align:center}
+.rh-cell .cell-inner{font-size:1.2rem;font-weight:800;text-align:center;padding:10px 12px}
+.cell-ta{font-family:'Baloo Thambi 2',cursive;font-size:1.25rem;font-weight:800;color:#111;line-height:1.15}
+.cell-en{font-family:'Nunito',sans-serif;font-size:0.62rem;font-weight:700;color:#555;letter-spacing:0.3px}
+.cell-speak-btn{background:none;border:none;cursor:pointer;padding:1px;line-height:0;opacity:0.55;transition:opacity 0.15s,transform 0.15s}
+.cell-speak-btn:hover{opacity:1;transform:scale(1.2)}
+.cell-speak-btn svg{width:13px;height:13px;fill:#111}
+.cell-speak-btn.speaking svg{fill:var(--accent)}
+
+/* RESPONSIVE */
+@media(max-width:540px){
+  .cards-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:12px;padding:10px 12px 20px}
+  .card-letter{font-size:2rem}
+  .tab-btn{padding:8px 14px;font-size:0.82rem}
+}
