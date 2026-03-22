@@ -119,13 +119,19 @@ function renderMatrix() {
   const headTr = document.createElement("tr");
   const corner = document.createElement("th");
   corner.className = "corner-cell";
+  corner.style.cursor = "pointer";
+  corner.title = "Speak: அக் (ak)";
   corner.innerHTML = `<span style="font-size:1.4rem">ஃ</span><br><span style="font-size:0.75rem;font-weight:700">ak</span>`;
+  corner.addEventListener("click", () => speak("அக்", null));
   headTr.appendChild(corner);
 
   vHeaders.forEach(vh => {
     const th = document.createElement("th");
     th.className = "vh-cell";
+    th.style.cursor = "pointer";
+    th.title = `Speak: ${vh.ta}`;
     th.innerHTML = `<div class="cell-inner"><span class="vh-ta">${vh.ta}</span><span class="vh-en">${vh.en}</span></div>`;
+    th.addEventListener("click", () => speak(vh.speak, null));
     headTr.appendChild(th);
   });
   thead.appendChild(headTr);
